@@ -4,6 +4,7 @@ public class Main {
 
         StringCalculator calc = new StringCalculator();
         System.out.println(calc.add(""));
+        System.out.println(calc.add("4"));
 
     }
 }

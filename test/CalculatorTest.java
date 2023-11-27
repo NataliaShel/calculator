@@ -7,5 +7,11 @@ public class CalculatorTest {
         StringCalculator calc = new StringCalculator();
         assertEquals(0,calc.add(""));
     }
-
+    @Test
+    public void testOneNumber(){
+        StringCalculator calc = new StringCalculator();
+        assertEquals(5,calc.add("5"));
+    }
 }
+
+
