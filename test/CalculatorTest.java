@@ -12,6 +12,16 @@ public class CalculatorTest {
         StringCalculator calc = new StringCalculator();
         assertEquals(5,calc.add("5"));
     }
+    @Test
+    public void testTwoNumber() {
+        StringCalculator calc = new StringCalculator();
+        assertEquals(1, calc.add("-2,3"));
+    }
+    @Test
+    public void testTwoNumber2() {
+        StringCalculator calc = new StringCalculator();
+        assertEquals(5, calc.add("2,3"));
+    }
 }
 
 
