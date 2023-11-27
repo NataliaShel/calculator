@@ -9,7 +9,7 @@ public class StringCalculator {
         else if (pattern.matcher(numbers).matches()) {
             return Integer.parseInt(numbers);
         }
-        String[] nums = numbers.split(",");
+        String[] nums = numbers.split(",|\\n");
         int sum = 0;
 
         for (int i=0; i < nums.length; i++){
