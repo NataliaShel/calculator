@@ -10,7 +10,14 @@ public class StringCalculator {
             return Integer.parseInt(numbers);
         }
         String[] nums = numbers.split(",");
-        return Integer.parseInt(nums[0])+Integer.parseInt(nums[1]);
+        int sum = 0;
+
+        for (int i=0; i < nums.length; i++){
+            int num = Integer.parseInt(nums[i]);
+
+                sum += num;
+        }
+        return sum;
     }
 
 }

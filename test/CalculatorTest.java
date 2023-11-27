@@ -22,6 +22,16 @@ public class CalculatorTest {
         StringCalculator calc = new StringCalculator();
         assertEquals(5, calc.add("2,3"));
     }
+    @Test
+    public void testFiveNumber() {
+        StringCalculator calc = new StringCalculator();
+        assertEquals(12, calc.add("2,3,1,5,1"));
+    }
+    @Test
+    public void testFiveNumber2() {
+        StringCalculator calc = new StringCalculator();
+        assertEquals(10, calc.add("2,3,-1,5,1"));
+    }
 }
 
 
