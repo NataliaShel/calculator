@@ -42,6 +42,23 @@ public class CalculatorTest {
         StringCalculator calc = new StringCalculator();
         assertEquals(6, calc.add("1\n2,3"));
     }
+    @Test
+    public void testSevenNumber() {
+        StringCalculator calc = new StringCalculator();
+        assertEquals(6, calc.add("1\n2,3"));
+    }
+
+    @Test
+    public void testCustomSeperator() {
+        StringCalculator calc = new StringCalculator();
+        assertEquals(3, calc.add("//;\n1;2"));
+    }
+    @Test
+    public void testCustomSeperator2() {
+        StringCalculator calc = new StringCalculator();
+        assertEquals(1, calc.add("//*\n-1*2"));
+    }
+
 }
 
 

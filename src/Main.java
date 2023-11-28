@@ -6,6 +6,6 @@ public class Main {
         System.out.println(calc.add(""));
         System.out.println(calc.add("4"));
         System.out.println(calc.add("4,7"));
-
+        System.out.println(calc.add("//;\n1;2"));
     }
 }
