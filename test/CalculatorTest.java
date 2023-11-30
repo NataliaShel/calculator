@@ -84,6 +84,12 @@ public class CalculatorTest {
         assertEquals("Numbers must be non-negative: -1 -2 ", ex.getMessage());
 
     }
+    @Test
+    public void testIgnores1000() throws Exception {
+        StringCalculator calc = new StringCalculator();
+        assertEquals(1999, calc.add("1000,999,1001"));
+    }
+
 }
 
 

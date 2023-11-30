@@ -54,8 +54,9 @@ public class StringCalculator {
         }
         for (int i=0; i < nums.length; i++){
             int num = Integer.parseInt(nums[i]);
-
+            if (num <= 1000) {
                 sum += num;
+            }
         }
         return sum;
     }
