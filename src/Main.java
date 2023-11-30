@@ -7,7 +7,8 @@ try {
 //    System.out.println(calc.add("4"));
 //    System.out.println(calc.add("4,7"));
     //System.out.println(calc.add("//;\n1;-2"));
-    System.out.println(calc.add("//[*a*]\n1*a*2*a*3"));
+
+    System.out.println(calc.add("//[*a*][__]\n1*a*2__3"));
 }
 catch( Exception  e) {
     System.out.println(e.getMessage());

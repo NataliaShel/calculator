@@ -19,27 +19,34 @@ public class StringCalculator {
         }
         if (numbers.startsWith("//")){
             int index = numbers.indexOf("\n");
-            String delimiter = numbers.substring(3,index-1);
+            String del = numbers.substring(3,index-1);
+            String delimiters[]=del.split("\\]\\[");
             //char delimiter = numbers.charAt(index-1);
-            String newDelimiter="" ;
+            String sep="";
+            for(int i=0;i<delimiters.length; i++) {
+                String newDelimiter="" ;
+                for (char d :  delimiters[i].toCharArray()) {
+                    boolean isMeta = false;
+                    for (char meta : metaChars) {
+                        if (d == meta) {
+                            newDelimiter += "\\" + d;
+                            isMeta = true;
+                            break;
+                        }
 
-            for (char d: delimiter.toCharArray()) {
-                boolean isMeta = false;
-                for (char meta : metaChars) {
-                    if (d == meta) {
-                        newDelimiter += "\\" + d;
-                        isMeta=true;
-                        break;
+
                     }
-
-
+                    if (!isMeta) {
+                        newDelimiter += d;
+                    }
                 }
-                if(!isMeta){
-                    newDelimiter+=d;
-                }
+                if(i!=delimiters.length-1)
+                    sep+=newDelimiter+"|";
+                else
+                    sep+=newDelimiter;
             }
 
-            String[] nums = numbers.substring(index+1).split(newDelimiter);
+            String[] nums = numbers.substring(index+1).split(sep);
             if(!getNegativeNumbers(nums).isEmpty()){
                 throw new NegativeNumberException("Numbers must be non-negative: ", getNegativeNumbers(nums));
             }

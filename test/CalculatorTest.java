@@ -111,6 +111,11 @@ public class CalculatorTest {
         StringCalculator calc = new StringCalculator();
         assertEquals(6, calc.add("//[*a*]\n1*a*2*a*3"));
     }
+    @Test
+    public void testSeveralSeparator() throws Exception {
+        StringCalculator calc = new StringCalculator();
+        assertEquals(6, calc.add("//[*][%]\n1*2%3"));
+    }
 
 }
 
