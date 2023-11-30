@@ -64,6 +64,12 @@ public class CalculatorTest {
         assertEquals(1,calc.add("//*\n-1*2"));
     }
     @Test
+    public void testCustomSeperator1000 () throws Exception {
+        StringCalculator calc = new StringCalculator();
+        assertEquals(1003, calc.add("//;\n1;1002"));
+
+    }
+    @Test
     public void testNegativeNumbers() throws Exception {
         StringCalculator calc = new StringCalculator();
         Exception ex = assertThrows( NegativeNumberException.class,()->{calc.add("-1,2");});
@@ -87,7 +93,23 @@ public class CalculatorTest {
     @Test
     public void testIgnores1000() throws Exception {
         StringCalculator calc = new StringCalculator();
-        assertEquals(1999, calc.add("1000,999,1001"));
+        assertEquals(1000, calc.add("1,999,1001"));
+    }
+    @Test
+    public void testIgnores10001() throws Exception {
+        StringCalculator calc = new StringCalculator();
+        assertEquals(0, calc.add("1003"));
+    }
+
+    @Test
+    public void testMulticharSeparator() throws Exception {
+        StringCalculator calc = new StringCalculator();
+        assertEquals(6, calc.add("//[***]\n1***2***3"));
+    }
+    @Test
+    public void testMulticharSeparator2() throws Exception {
+        StringCalculator calc = new StringCalculator();
+        assertEquals(6, calc.add("//[*a*]\n1*a*2*a*3"));
     }
 
 }

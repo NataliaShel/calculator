@@ -10,27 +10,34 @@ public class StringCalculator {
             return 0;
         else if (pattern.matcher(numbers).matches()) {
             if(getNegativeNumbers(numbers).isEmpty())
-                return Integer.parseInt(numbers);
+                if (Integer.parseInt(numbers)>1000)
+                    return 0;
+                else
+                    return Integer.parseInt(numbers);
             else
                 throw new NegativeNumberException("Number must be non-negative: ", getNegativeNumbers(numbers));
         }
         if (numbers.startsWith("//")){
             int index = numbers.indexOf("\n");
-
-            char delimiter = numbers.charAt(index-1);
+            String delimiter = numbers.substring(3,index-1);
+            //char delimiter = numbers.charAt(index-1);
             String newDelimiter="" ;
 
-            boolean isMeta = false;
-            for(char meta : metaChars){
-                if(delimiter==meta){
-                    newDelimiter+="\\"+delimiter;
-                    isMeta = true;
-                    break;
-                }
+            for (char d: delimiter.toCharArray()) {
+                boolean isMeta = false;
+                for (char meta : metaChars) {
+                    if (d == meta) {
+                        newDelimiter += "\\" + d;
+                        isMeta=true;
+                        break;
+                    }
 
+
+                }
+                if(!isMeta){
+                    newDelimiter+=d;
+                }
             }
-            if(!isMeta)
-                newDelimiter+=delimiter;
 
             String[] nums = numbers.substring(index+1).split(newDelimiter);
             if(!getNegativeNumbers(nums).isEmpty()){
