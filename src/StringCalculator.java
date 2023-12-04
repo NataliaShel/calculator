@@ -46,7 +46,7 @@ public class StringCalculator {
                     sep+=newDelimiter;
             }
 
-            String[] nums = numbers.substring(index+1).split(sep);
+            String[] nums = numbers.substring(index+1).split(sep+"|,|\n");
             if(!getNegativeNumbers(nums).isEmpty()){
                 throw new NegativeNumberException("Numbers must be non-negative: ", getNegativeNumbers(nums));
             }
