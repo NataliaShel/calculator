@@ -10,6 +10,9 @@ public class StringCalculator {
             return Integer.parseInt(numbers);
         }
         String[] nums = numbers.split(",");
+        if (nums.length>2){
+            throw new IllegalArgumentException("Cant be more then 2 numbers");
+        }
         return Integer.parseInt(nums[0])+Integer.parseInt(nums[1]);
     }
 
