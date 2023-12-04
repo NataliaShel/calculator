@@ -32,7 +32,7 @@ public class StringCalculator {
             if(!isMeta)
                 newDelimiter+=delimiter;
 
-            String[] nums = numbers.substring(index+1).split(newDelimiter);
+            String[] nums = numbers.substring(index+1).split(newDelimiter+"|,|\n");
             if(!getNegativeNumbers(nums).isEmpty()){
                 throw new NegativeNumberException("Numbers must be non-negative: ", getNegativeNumbers(nums));
             }
