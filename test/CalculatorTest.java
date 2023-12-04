@@ -58,6 +58,11 @@ public class CalculatorTest {
         StringCalculator calc = new StringCalculator();
         assertEquals(1, calc.add("//*\n-1*2"));
     }
+    @Test
+    public void testCustomSeperator3() {
+        StringCalculator calc = new StringCalculator();
+        assertEquals(12, calc.add("//!\n-1!2,3\n8"));
+    }
 
 }
 
