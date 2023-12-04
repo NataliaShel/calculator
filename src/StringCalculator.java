@@ -32,7 +32,7 @@ public class StringCalculator {
             if(!isMeta)
                 newDelimiter+=delimiter;
 
-            String[] nums = numbers.substring(index+1).split(newDelimiter);
+            String[] nums = numbers.substring(index+1).split(newDelimiter+"|,|\n");
             if(!getNegativeNumbers(nums).isEmpty()){
                 throw new NegativeNumberException("Numbers must be non-negative: ", getNegativeNumbers(nums));
             }
@@ -40,9 +40,9 @@ public class StringCalculator {
             for (int i=0; i < nums.length; i++){
                 if (!nums[i].isEmpty()){
                     int num = Integer.parseInt(nums[i]);
-                    if (num <= 1000) {
+
                         sum += num;
-                    }
+
                 }
             }
             return sum;
